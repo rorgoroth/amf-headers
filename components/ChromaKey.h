@@ -1,4 +1,4 @@
-// 
+//
 // Notice Regarding Standards.  AMD does not provide a license or sublicense to
 // any Intellectual Property Rights relating to any standards, including but not
 // limited to any audio and/or video codec technologies such as MPEG-2, MPEG-4;
@@ -6,9 +6,9 @@
 // (collectively, the "Media Technologies"). For clarity, you will pay any
 // royalties due for such third party technologies, which may include the Media
 // Technologies that are owed as a result of AMD providing the Software to you.
-// 
-// MIT license 
-// 
+//
+// MIT license
+//
 //
 // Copyright (c) 2018 Advanced Micro Devices, Inc. All rights reserved.
 //
@@ -44,7 +44,7 @@
 
 #define AMFChromaKey                  L"AMFChromaKey"
 
-// static properties 
+// static properties
 #define AMF_CHROMAKEY_COLOR           L"ChromaKeyColor"         // amf_uint64 (default=0x992A1E), YUV Green key Color
 #define AMF_CHROMAKEY_COLOR_EX        L"ChromaKeyColorEX"       // amf_uint64 (default=0), YUV Green key Color, secondary
 #define AMF_CHROMAKEY_RANGE_MIN       L"ChromaKeyRangeMin"      // amf_uint64 (default=20)   color tolerance low, 0~255

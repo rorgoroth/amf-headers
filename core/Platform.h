@@ -1,4 +1,4 @@
-// 
+//
 // Notice Regarding Standards.  AMD does not provide a license or sublicense to
 // any Intellectual Property Rights relating to any standards, including but not
 // limited to any audio and/or video codec technologies such as MPEG-2, MPEG-4;
@@ -6,9 +6,9 @@
 // (collectively, the "Media Technologies"). For clarity, you will pay any
 // royalties due for such third party technologies, which may include the Media
 // Technologies that are owed as a result of AMD providing the Software to you.
-// 
-// MIT license 
-// 
+//
+// MIT license
+//
 // Copyright (c) 2018 Advanced Micro Devices, Inc. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,13 +47,13 @@
             #define AMF_CORE_LINK __declspec(dllimport)
         #endif
     #endif
-#elif defined(__linux)        
+#elif defined(__linux)
         #if defined(AMF_CORE_EXPORTS)
             #define AMF_CORE_LINK __attribute__((visibility("default")))
         #else
             #define AMF_CORE_LINK
         #endif
-#else 
+#else
     #define AMF_CORE_LINK
 #endif // #ifdef _WIN32
 
@@ -72,7 +72,7 @@
 //     #error Need to define AMF_ALIGN
  #endif
 
-#if defined(__linux) || (__clang__)
+#if defined(__linux) || defined(__ANDROID__)
 typedef signed int HRESULT;
 #define SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
 #define FAILED(hr) (((HRESULT)(hr)) < 0)
@@ -121,7 +121,7 @@ typedef signed int HRESULT;
     #define AMF_INLINE              __inline__
     #define AMF_FORCEINLINE         __inline__
 #endif
-    #define AMF_NO_VTABLE           
+    #define AMF_NO_VTABLE
 
     #if !defined(AMFPRId64)
         #define AMFPRId64    "lld"
@@ -138,7 +138,7 @@ typedef signed int HRESULT;
 
 
 #if defined(_WIN32)
-#define AMF_WEAK __declspec( selectany ) 
+#define AMF_WEAK __declspec( selectany )
 #elif defined (__GNUC__) || defined (__GCC__) || defined(__clang__)//GCC or CLANG
 #define AMF_WEAK __attribute__((weak))
 #endif
@@ -169,14 +169,14 @@ typedef     void                amf_void;
 typedef     bool                amf_bool;
 #else
 typedef     amf_uint8           amf_bool;
-#define     true                1 
-#define     false               0 
+#define     true                1
+#define     false               0
 #endif
 
-typedef     long                amf_long; 
-typedef     int                 amf_int; 
-typedef     unsigned long       amf_ulong; 
-typedef     unsigned int        amf_uint; 
+typedef     long                amf_long;
+typedef     int                 amf_int;
+typedef     unsigned long       amf_ulong;
+typedef     unsigned int        amf_uint;
 
 typedef     amf_int64           amf_pts;     // in 100 nanosecs
 
@@ -184,9 +184,11 @@ typedef amf_uint32              amf_flags;
 
 #define AMF_SECOND          10000000L    // 1 second in 100 nanoseconds
 #define AMF_MILLISECOND		(AMF_SECOND / 1000)
+#define AMF_MICROSECOND     (AMF_MILLISECOND / 1000)
 
 #define AMF_MIN(a, b) ((a) < (b) ? (a) : (b))
 #define AMF_MAX(a, b) ((a) > (b) ? (a) : (b))
+#define AMF_CLAMP(x, a, b) (AMF_MIN(AMF_MAX(x, a), b))
 
 #define AMF_BITS_PER_BYTE 8
 
@@ -207,7 +209,7 @@ typedef struct AMFRect
 #if defined(__cplusplus)
     bool operator==(const AMFRect& other) const
     {
-         return left == other.left && top == other.top && right == other.right && bottom == other.bottom; 
+         return left == other.left && top == other.top && right == other.right && bottom == other.bottom;
     }
     AMF_INLINE bool operator!=(const AMFRect& other) const { return !operator==(other); }
     amf_int32 Width() const { return right - left; }
@@ -228,7 +230,7 @@ typedef struct AMFSize
 #if defined(__cplusplus)
     bool operator==(const AMFSize& other) const
     {
-         return width == other.width && height == other.height; 
+         return width == other.width && height == other.height;
     }
     AMF_INLINE bool operator!=(const AMFSize& other) const { return !operator==(other); }
 #endif
@@ -247,7 +249,7 @@ typedef struct AMFPoint
 #if defined(__cplusplus)
     bool operator==(const AMFPoint& other) const
     {
-         return x == other.x && y == other.y; 
+         return x == other.x && y == other.y;
     }
     AMF_INLINE bool operator!=(const AMFPoint& other) const { return !operator==(other); }
 #endif
@@ -346,7 +348,7 @@ typedef struct AMFRate
 #if defined(__cplusplus)
     bool operator==(const AMFRate& other) const
     {
-         return num == other.num && den == other.den; 
+         return num == other.num && den == other.den;
     }
     AMF_INLINE bool operator!=(const AMFRate& other) const { return !operator==(other); }
 #endif
@@ -365,7 +367,7 @@ typedef struct AMFRatio
 #if defined(__cplusplus)
     bool operator==(const AMFRatio& other) const
     {
-         return num == other.num && den == other.den; 
+         return num == other.num && den == other.den;
     }
     AMF_INLINE bool operator!=(const AMFRatio& other) const { return !operator==(other); }
 #endif
@@ -403,7 +405,7 @@ typedef struct AMFColor
 #if defined(__cplusplus)
     bool operator==(const AMFColor& other) const
     {
-         return r == other.r && g == other.g && b == other.b && a == other.a; 
+         return r == other.r && g == other.g && b == other.b && a == other.a;
     }
     AMF_INLINE bool operator!=(const AMFColor& other) const { return !operator==(other); }
 #endif

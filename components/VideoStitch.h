@@ -1,4 +1,4 @@
-// 
+//
 // Notice Regarding Standards.  AMD does not provide a license or sublicense to
 // any Intellectual Property Rights relating to any standards, including but not
 // limited to any audio and/or video codec technologies such as MPEG-2, MPEG-4;
@@ -6,9 +6,9 @@
 // (collectively, the "Media Technologies"). For clarity, you will pay any
 // royalties due for such third party technologies, which may include the Media
 // Technologies that are owed as a result of AMD providing the Software to you.
-// 
-// MIT license 
-// 
+//
+// MIT license
+//
 //
 // Copyright (c) 2017 Advanced Micro Devices, Inc. All rights reserved.
 //
@@ -45,16 +45,16 @@
 
 #define AMFVideoStitch       L"AMFVideoStitch"                  //Component name
 
-// static properties 
+// static properties
 #define AMF_VIDEO_STITCH_OUTPUT_FORMAT       L"OutputFormat"    // Values, AMF_SURFACE_BGRA or AMF_SURFACE_RGBA
 #define AMF_VIDEO_STITCH_MEMORY_TYPE         L"MemoryType"      // Values, only AMF_MEMORY_DX11 is supported for now.
 #define AMF_VIDEO_STITCH_OUTPUT_SIZE         L"OutputSize"      // AMFSize, (width, height) in pixels. default= (0,0), will be the same size as input.
 #define AMF_VIDEO_STITCH_INPUTCOUNT          L"InputCount"      // amf_uint64, number of camera inputs.
 
 // individual camera direction and location
-#define AMF_VIDEO_CAMERA_ANGLE_PITCH        L"CameraPitch"      // double, in radians, default = 0, camera pitch orientation 
-#define AMF_VIDEO_CAMERA_ANGLE_YAW          L"CameraYaw"        // double, in radians, default = 0, camera yaw orientation 
-#define AMF_VIDEO_CAMERA_ANGLE_ROLL         L"CameraRoll"       // double, in radians, default = 0, camera roll orientation 
+#define AMF_VIDEO_CAMERA_ANGLE_PITCH        L"CameraPitch"      // double, in radians, default = 0, camera pitch orientation
+#define AMF_VIDEO_CAMERA_ANGLE_YAW          L"CameraYaw"        // double, in radians, default = 0, camera yaw orientation
+#define AMF_VIDEO_CAMERA_ANGLE_ROLL         L"CameraRoll"       // double, in radians, default = 0, camera roll orientation
 
 #define AMF_VIDEO_CAMERA_OFFSET_X           L"CameraOffsetX"    // double, in pixels, default = 0, X offset of camera center of the lens from the center of the rig.
 #define AMF_VIDEO_CAMERA_OFFSET_Y           L"CameraOffsetY"    // double, in pixels, default = 0, Y offset of camera center of the lens from the center of the rig.
@@ -72,7 +72,7 @@
 
 #define AMF_VIDEO_STITCH_LENS_MODE          L"LensMode"         // Values, AMF_VIDEO_STITCH_LENS_CORR_MODE_ENUM, (default = AMF_VIDEO_STITCH_LENS_CORR_MODE_RADIAL)
 
-#define AMF_VIDEO_STITCH_OUTPUT_MODE        L"OutputMode"       // AMF_VIDEO_STITCH_OUTPUT_MODE_ENUM (default=AMF_VIDEO_STITCH_OUTPUT_MODE_PREVIEW) 
+#define AMF_VIDEO_STITCH_OUTPUT_MODE        L"OutputMode"       // AMF_VIDEO_STITCH_OUTPUT_MODE_ENUM (default=AMF_VIDEO_STITCH_OUTPUT_MODE_PREVIEW)
 #define AMF_VIDEO_STITCH_COMBINED_SOURCE    L"CombinedSource"   // bool, (default=false) video sources are combined in one stream
 
 #define AMF_VIDEO_STITCH_COMPUTE_DEVICE     L"ComputeDevice"    // amf_int64(AMF_MEMORY_TYPE) Values, AMF_MEMORY_DX11, AMF_MEMORY_COMPUTE_FOR_DX11, AMF_MEMORY_OPENCL
@@ -80,7 +80,7 @@
 //for debug
 #define AMF_VIDEO_STITCH_WIRE_RENDER        L"Wire"             // bool (default=false) reder wireframe
 
-//view angle 
+//view angle
 #define AMF_VIDEO_STITCH_VIEW_ROTATE_X      L"AngleX"           // double, in radians, default = 0 - delta from current position / automatilcally reset to 0 inside SetProperty() call
 #define AMF_VIDEO_STITCH_VIEW_ROTATE_Y      L"AngleY"           // double, in radians, default = 0 - delta from current position / automatilcally reset to 0 inside SetProperty() call
 #define AMF_VIDEO_STITCH_VIEW_ROTATE_Z      L"AngleZ"           // double, in radians, default = 0 - delta from current position / automatilcally reset to 0 inside SetProperty() call
