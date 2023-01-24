@@ -1,4 +1,4 @@
-//
+// 
 // Notice Regarding Standards.  AMD does not provide a license or sublicense to
 // any Intellectual Property Rights relating to any standards, including but not
 // limited to any audio and/or video codec technologies such as MPEG-2, MPEG-4;
@@ -6,9 +6,9 @@
 // (collectively, the "Media Technologies"). For clarity, you will pay any
 // royalties due for such third party technologies, which may include the Media
 // Technologies that are owed as a result of AMD providing the Software to you.
-//
-// MIT license
-//
+// 
+// MIT license 
+// 
 // Copyright (c) 2018 Advanced Micro Devices, Inc. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -425,7 +425,7 @@ namespace amf
         }
 
         AMF_INLINE size_t length() const { return size(); }
-
+        
         void resize(size_t sizeAlloc)
         {
             if(sizeAlloc == 0)
@@ -535,7 +535,7 @@ namespace amf
         }
 
         AMF_INLINE size_t length() const { return size(); }
-
+        
         void resize(size_t sizeAlloc)
         {
             if(sizeAlloc == 0)
@@ -563,7 +563,7 @@ namespace amf
     //-------------------------------------------------------------------------------------------------
     AMFVariant::String       AMFVariant::ToString() const
     {
-        String temp = GetValue<String, AMF_VARIANT_STRING>(AMFVariantGetString);
+        String temp = GetValue<String, AMF_VARIANT_STRING>(AMFVariantGetString); 
         return String(temp.c_str());
     }
     //-------------------------------------------------------------------------------------------------
@@ -574,7 +574,7 @@ namespace amf
     }
 #endif // defined(__cplusplus)
     //----------------------------------------------------------------------------------------------
-    // AMF_INLINE implementation of helper functions
+    // AMF_INLINE implementation of helper functions 
     //----------------------------------------------------------------------------------------------
     #define AMF_VARIANT_RETURN_IF_INVALID_POINTER(p) \
        { \
@@ -633,7 +633,7 @@ namespace amf
         AMF_RESULT errRet = AMF_OK;
         AMF_VARIANT_RETURN_IF_INVALID_POINTER(pFirst);
         AMF_VARIANT_RETURN_IF_INVALID_POINTER(pSecond);
-
+    
         if(pFirst == pSecond)
         {
             *bEqual = true;
@@ -831,7 +831,7 @@ namespace amf
     #define AMFVariantTypeFloatPoint2D  AMF_VARIANT_FLOAT_POINT2D
     #define AMFVariantTypeFloatPoint3D  AMF_VARIANT_FLOAT_POINT3D
     #define AMFVariantTypeFloatVector4D AMF_VARIANT_FLOAT_VECTOR4D
-
+    
     #define AMFVariantTypeRate          AMF_VARIANT_RATE
     #define AMFVariantTypeRatio         AMF_VARIANT_RATIO
     #define AMFVariantTypeColor         AMF_VARIANT_COLOR
@@ -841,7 +841,7 @@ namespace amf
     #define AMFVariantTypeInterface     AMF_VARIANT_INTERFACE
 
 #if defined(__cplusplus)
-
+    
     static AMF_INLINE AMF_RESULT AMF_CDECL_CALL AMFVariantAssignString(AMFVariantStruct* pDest, const AMFVariant::String& value)
     {
         return AMFVariantAssignString(pDest, value.c_str());
@@ -850,13 +850,13 @@ namespace amf
     {
         return AMFVariantAssignWString(pDest, value.c_str());
     }
-
+        
     static AMF_INLINE amf_bool AMFConvertEmptyToBool(void*, AMF_RESULT& res) { res = AMF_OK; return false; }
     static AMF_INLINE amf_int64 AMFConvertEmptyToInt64(void*, AMF_RESULT& res) {res = AMF_OK; return 0; }
     static AMF_INLINE amf_double AMFConvertEmptyToDouble(void*, AMF_RESULT& res) {res = AMF_OK; return 0; }
     static AMF_INLINE amf_float AMFConvertEmptyToFloat(void*, AMF_RESULT& res) { res = AMF_OK; return 0; }
 
-
+    
     static AMF_INLINE AMFVariant::String AMFConvertEmptyToString(void*, AMF_RESULT& res) {res = AMF_OK; return ""; }
     static AMF_INLINE AMFVariant::WString AMFConvertEmptyToWString(void*, AMF_RESULT& res) {res = AMF_OK; return L""; }
     static AMF_INLINE amf_int64 AMFConvertBoolToInt64(bool value, AMF_RESULT& res){res = AMF_OK; return value ? 1 : 0;}
@@ -962,7 +962,7 @@ namespace amf
         amf_double tmp = 0;
         int readElements = 0;
         if(value.size() > 0)
-        {
+        { 
             readElements = sscanf(value.c_str(), "%lf", &tmp);
         }
         if(readElements)
@@ -1039,7 +1039,7 @@ namespace amf
         len = value.size();
         pt = pUtf8Buff;
         UnicodeBuffSize = 0;
-        while(len > 0)
+        while(len > 0)                            
         {
             size_t length = mbrlen (pt, len, &mbs);
             if((length == 0) || (length > len))
@@ -1249,8 +1249,8 @@ namespace amf
           if(strchr(value.c_str(), ',') != nullptr)
           {
             readElements = sscanf(value.c_str(), "%d,%d", &tmp.width, &tmp.height);
-          }
-          else if (strchr(value.c_str(), 'x') != nullptr)
+          } 
+          else if (strchr(value.c_str(), 'x') != nullptr) 
           {
             readElements = sscanf(value.c_str(), "%dx%d", &tmp.width, &tmp.height);
           }
@@ -1383,7 +1383,7 @@ namespace amf
         amf_uint32 b = 0;
         amf_uint32 a = 0;
         if(value.size() > 0)
-        {
+        { 
             readElements = sscanf(value.c_str(), "%u,%u,%u,%u", &r, &g, &b, &a);
         }
         if(readElements)

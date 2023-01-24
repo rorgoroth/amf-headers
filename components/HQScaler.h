@@ -1,4 +1,4 @@
-//
+// 
 // Notice Regarding Standards.  AMD does not provide a license or sublicense to
 // any Intellectual Property Rights relating to any standards, including but not
 // limited to any audio and/or video codec technologies such as MPEG-2, MPEG-4;
@@ -6,9 +6,9 @@
 // (collectively, the "Media Technologies"). For clarity, you will pay any
 // royalties due for such third party technologies, which may include the Media
 // Technologies that are owed as a result of AMD providing the Software to you.
-//
-// MIT license
-//
+// 
+// MIT license 
+// 
 // Copyright (c) 2021 Advanced Micro Devices, Inc. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,9 +43,10 @@ enum  AMF_HQ_SCALER_ALGORITHM_ENUM
 {
     AMF_HQ_SCALER_ALGORITHM_BILINEAR = 0,
     AMF_HQ_SCALER_ALGORITHM_BICUBIC = 1,
-    AMF_HQ_SCALER_ALGORITHM_FSR = 2,
+    AMF_HQ_SCALER_ALGORITHM_FSR = 2, // deprecated
+    AMF_HQ_SCALER_ALGORITHM_VIDEOSR1_0 = 2,
     AMF_HQ_SCALER_ALGORITHM_POINT = 3,
-    AMF_HQ_SCALER_ALGORITHM_FSR1_1 = 4,
+    AMF_HQ_SCALER_ALGORITHM_VIDEOSR1_1 = 4,
 
 };
 
@@ -57,11 +58,12 @@ enum  AMF_HQ_SCALER_ALGORITHM_ENUM
 
 #define AMF_HQ_SCALER_OUTPUT_SIZE       L"HQSOutputSize"            // AMFSize                                                                         - output scaling width/hieight
 
-#define AMF_HQ_SCALER_KEEP_ASPECT_RATIO  L"KeepAspectRatio"         // bool (default=false) Keep aspect ratio if scaling.
-#define AMF_HQ_SCALER_FILL               L"Fill"                    // bool (default=false) fill area out of ROI.
-#define AMF_HQ_SCALER_FILL_COLOR         L"FillColor"               // AMFColor
-#define AMF_HQ_SCALER_FROM_SRGB          L"FromSRGB"                   //  bool (default=true) Convert to SRGB.
+#define AMF_HQ_SCALER_KEEP_ASPECT_RATIO  L"KeepAspectRatio"         // bool (default=false) Keep aspect ratio if scaling. 
+#define AMF_HQ_SCALER_FILL               L"Fill"                    // bool (default=false) fill area out of ROI. 
+#define AMF_HQ_SCALER_FILL_COLOR         L"FillColor"               // AMFColor 
+#define AMF_HQ_SCALER_FROM_SRGB          L"FromSRGB"                   //  bool (default=true) Convert to SRGB. 
 
 #define AMF_HQ_SCALER_SHARPNESS          L"HQScalerSharpness"   // Float in the range of [0.0, 2.0]
+#define AMF_HQ_SCALER_FRAME_RATE         L"HQScalerFrameRate"   // Frame rate (off, 15, 30, 60)
 
 #endif //#ifndef AMFHQScaler_h

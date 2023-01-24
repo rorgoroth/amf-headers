@@ -1,4 +1,4 @@
-//
+// 
 // Notice Regarding Standards.  AMD does not provide a license or sublicense to
 // any Intellectual Property Rights relating to any standards, including but not
 // limited to any audio and/or video codec technologies such as MPEG-2, MPEG-4;
@@ -6,9 +6,9 @@
 // (collectively, the "Media Technologies"). For clarity, you will pay any
 // royalties due for such third party technologies, which may include the Media
 // Technologies that are owed as a result of AMD providing the Software to you.
-//
-// MIT license
-//
+// 
+// MIT license 
+// 
 // Copyright (c) 2018 Advanced Micro Devices, Inc. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -77,7 +77,7 @@ namespace amf
         amf_long            (AMF_STD_CALL *Acquire)(AMFDataAllocatorCB* pThis);
         amf_long            (AMF_STD_CALL *Release)(AMFDataAllocatorCB* pThis);
         enum AMF_RESULT     (AMF_STD_CALL *QueryInterface)(AMFDataAllocatorCB* pThis, const struct AMFGuid *interfaceID, void** ppInterface);
-        // AMFDataAllocatorCB interface
+        // AMFDataAllocatorCB interface 
         AMF_RESULT (AMF_STD_CALL *AllocBuffer)(AMFDataAllocatorCB* pThis, AMF_MEMORY_TYPE type, amf_size size, AMFBuffer** ppBuffer);
         AMF_RESULT (AMF_STD_CALL *AllocSurface)(AMFDataAllocatorCB* pThis, AMF_MEMORY_TYPE type, AMF_SURFACE_FORMAT format,
             amf_int32 width, amf_int32 height, amf_int32 hPitch, amf_int32 vPitch, AMFSurface** ppSurface);
@@ -100,7 +100,7 @@ namespace amf
     typedef struct AMFComponentOptimizationCallback AMFComponentOptimizationCallback;
     typedef struct AMFComponentOptimizationCallbackVtbl
     {
-        // AMFDataAllocatorCB interface
+        // AMFDataAllocatorCB interface 
         AMF_RESULT (AMF_STD_CALL *OnComponentOptimizationProgress)(AMFComponentOptimizationCallback* pThis, amf_uint percent);
     } AMFComponentOptimizationCallbackVtbl;
 
@@ -401,19 +401,19 @@ typedef enum AMF_STREAM_TYPE_ENUM
 typedef enum AMF_STREAM_CODEC_ID_ENUM     // matched codecs from VideoDecoxcderUVD.h
 {
     AMF_STREAM_CODEC_ID_UNKNOWN     = 0,
-    AMF_STREAM_CODEC_ID_MPEG2       = 1,  // AMFVideoDecoderUVD_MPEG2
-    AMF_STREAM_CODEC_ID_MPEG4       = 2,  // AMFVideoDecoderUVD_MPEG4
-    AMF_STREAM_CODEC_ID_WMV3        = 3,  // AMFVideoDecoderUVD_WMV3
-    AMF_STREAM_CODEC_ID_VC1         = 4,  // AMFVideoDecoderUVD_VC1
-    AMF_STREAM_CODEC_ID_H264_AVC    = 5,  // AMFVideoDecoderUVD_H264_AVC
-    AMF_STREAM_CODEC_ID_H264_MVC    = 6,  // AMFVideoDecoderUVD_H264_MVC
-    AMF_STREAM_CODEC_ID_H264_SVC    = 7,  // AMFVideoDecoderUVD_H264_SVC
-    AMF_STREAM_CODEC_ID_MJPEG       = 8,  // AMFVideoDecoderUVD_MJPEG
-    AMF_STREAM_CODEC_ID_H265_HEVC   = 9,  // AMFVideoDecoderHW_H265_HEVC
-    AMF_STREAM_CODEC_ID_H265_MAIN10 = 10, // AMFVideoDecoderHW_H265_MAIN10
+    AMF_STREAM_CODEC_ID_MPEG2       = 1,  // AMFVideoDecoderUVD_MPEG2      
+    AMF_STREAM_CODEC_ID_MPEG4       = 2,  // AMFVideoDecoderUVD_MPEG4      
+    AMF_STREAM_CODEC_ID_WMV3        = 3,  // AMFVideoDecoderUVD_WMV3       
+    AMF_STREAM_CODEC_ID_VC1         = 4,  // AMFVideoDecoderUVD_VC1        
+    AMF_STREAM_CODEC_ID_H264_AVC    = 5,  // AMFVideoDecoderUVD_H264_AVC   
+    AMF_STREAM_CODEC_ID_H264_MVC    = 6,  // AMFVideoDecoderUVD_H264_MVC   
+    AMF_STREAM_CODEC_ID_H264_SVC    = 7,  // AMFVideoDecoderUVD_H264_SVC   
+    AMF_STREAM_CODEC_ID_MJPEG       = 8,  // AMFVideoDecoderUVD_MJPEG      
+    AMF_STREAM_CODEC_ID_H265_HEVC   = 9,  // AMFVideoDecoderHW_H265_HEVC   
+    AMF_STREAM_CODEC_ID_H265_MAIN10 = 10, // AMFVideoDecoderHW_H265_MAIN10 
     AMF_STREAM_CODEC_ID_VP9         = 11, // AMFVideoDecoderHW_VP9
-    AMF_STREAM_CODEC_ID_VP9_10BIT   = 12, // AMFVideoDecoderHW_VP9_10BIT
-    AMF_STREAM_CODEC_ID_AV1         = 13, // AMFVideoDecoderHW_AV1
+    AMF_STREAM_CODEC_ID_VP9_10BIT   = 12, // AMFVideoDecoderHW_VP9_10BIT   
+    AMF_STREAM_CODEC_ID_AV1         = 13, // AMFVideoDecoderHW_AV1 
     AMF_STREAM_CODEC_ID_AV1_12BIT   = 14, // AMFVideoDecoderHW_AV1_12BIT
 } AMF_STREAM_CODEC_ID_ENUM;
 
