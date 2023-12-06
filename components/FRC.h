@@ -1,4 +1,4 @@
-// 
+//
 // Notice Regarding Standards.  AMD does not provide a license or sublicense to
 // any Intellectual Property Rights relating to any standards, including but not
 // limited to any audio and/or video codec technologies such as MPEG-2, MPEG-4;
@@ -6,10 +6,10 @@
 // (collectively, the "Media Technologies"). For clarity, you will pay any
 // royalties due for such third party technologies, which may include the Media
 // Technologies that are owed as a result of AMD providing the Software to you.
-// 
-// MIT license 
-// 
-// Copyright (c) 2018 Advanced Micro Devices, Inc. All rights reserved.
+//
+// MIT license
+//
+// Copyright (c) 2021 Advanced Micro Devices, Inc. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -30,22 +30,46 @@
 // THE SOFTWARE.
 //
 
-#ifndef __D3D12AMF_h__
-#define __D3D12AMF_h__
-#pragma once 
-#include "Platform.h"
-#if defined(_WIN32)||(defined(__linux) && defined(AMF_WSL))
+#ifndef AMFFRC_h
+#define AMFFRC_h
 
-#define AMFDX12_NUMBER_OF_DESCRYPTOR_HEAPS  L"NumberOfDescryptorHeaps" // amf_int64, default is 4, to be set on AMFContext
-// syncronization properties set via SetPrivateData()
-AMF_WEAK GUID  AMFResourceStateGUID = { 0x452da9bf, 0x4ad7, 0x47a5, { 0xa6, 0x9b, 0x96, 0xd3, 0x23, 0x76, 0xf2, 0xf3 } };   // Current resource state value (D3D12_RESOURCE_STATES ), sizeof(UINT), set on ID3D12Resource 
-AMF_WEAK GUID  AMFFenceGUID         = { 0x910a7928, 0x57bd, 0x4b04, { 0x91, 0xa3, 0xe7, 0xb8, 0x04, 0x12, 0xcd, 0xa5 } };   // IUnknown (ID3D12Fence), set on ID3D12Resource  syncronization fence for this resource
-AMF_WEAK GUID  AMFFenceValueGUID    = { 0x62a693d3, 0xbb4a, 0x46c9, { 0xa5, 0x04, 0x9a, 0x8e, 0x97, 0xbf, 0xf0, 0x56 } };   // The last value to wait on the fence from AMFFenceGUID; sizeof(UINT64), set on ID3D12Fence 
+#pragma once
 
-AMF_WEAK GUID  AMFFenceD3D11GUID    = { 0xdffdf6e0, 0x85e0, 0x4645, { 0x9d, 0x7, 0xe6, 0x4a, 0x19, 0x6b, 0xc9, 0xbf } };   // IUnknown (ID3D11Fence) OpenSharedFence for interop
-AMF_WEAK GUID  AMFFenceValueD3D11GUID    = { 0x86581b71, 0x699f, 0x484b, { 0xb8, 0x75, 0x24, 0xda, 0x49, 0x8a, 0x74, 0xcf } };   // last value to wait on in d3d11
-AMF_WEAK GUID  AMFSharedHandleFenceGUID = { 0xca60dcc8, 0x76d1, 0x4088, 0xad, 0xd, 0x97, 0x71, 0xe7, 0xb0, 0x92, 0x49 };   // ID3D12Fence shared handle for D3D11 interop
+#define AMFFRC L"AMFFRC"
 
-#endif
+// Select rendering API for FRC
+enum AMF_FRC_ENGINE
+{
+    FRC_ENGINE_OFF = 0,
+    FRC_ENGINE_DX12 = 1,
+    FRC_ENGINE_OPENCL = 2,
+};
 
-#endif // __D3D12AMF_h__
+// Select present mode for FRC
+enum AMF_FRC_MODE_TYPE
+{
+    FRC_OFF = 0,
+    FRC_ON,
+    FRC_ONLY_INTERPOLATED,
+    FRC_x2_PRESENT,
+    TOTAL_FRC_MODES
+};
+
+enum AMF_FRC_SNAPSHOT_MODE_TYPE {
+    FRC_SNAPSHOT_OFF = 0,
+    FRC_SNAPSHOT_LOAD,
+    FRC_SNAPSHOT_STORE,
+    FRC_SNAPSHOT_REGRESSION_TEST,
+    FRC_SNAPSHOT_STORE_NO_PADDING,
+    TOTAL_FRC_SNAPSHOT_MODES
+};
+
+#define AMF_FRC_ENGINE_TYPE        L"FRCEngineType"           // AMF_MEMORY_TYPE (DX12, OPENCL, default : DX12)" - determines how the object is initialized and what kernels to use
+#define AMF_FRC_OUTPUT_SIZE        L"FRCSOutputSize"          // AMFSize - output scaling width/hieight
+#define AMF_FRC_KEEP_ASPECT_RATIO  L"KeepAspectRatio"         // bool (default=false) Keep aspect ratio if scaling.
+#define AMF_FRC_FROM_SRGB          L"FromSRGB"                // bool (default=true) Convert to SRGB.
+#define AMF_FRC_MODE               L"FRCMode"                 // FRC mode (0-off, 1-on (call at x2 source FPS), 2-only interpolated, 3-x2 Present)
+#define AMF_FRC_ENABLE_FALLBACK	   L"FRCEnableFallback"		  // FRC enable fallback mode
+#define AMF_FRC_INDICATOR          L"FRCIndicator"            // bool (default : false)
+
+#endif //#ifndef AMFFRC_h
